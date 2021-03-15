@@ -1,4 +1,4 @@
--- ¹®Á¦ 1
+ï»¿-- ë¬¸ì œ 1
 SELECT
     EMPNO,
     RPAD(SUBSTR(EMPNO, 1, 2), LENGTH(EMPNO), '*'),
@@ -8,7 +8,7 @@ FROM EMP
 WHERE LENGTH(ENAME) >= 5
     AND LENGTH(ENAME) < 6;
     
--- ¹®Á¦ 2
+-- ë¬¸ì œ 2
 SELECT
     EMPNO,
     ENAME,
@@ -17,16 +17,16 @@ SELECT
     ROUND((SAL/21.5)/8, 1) AS TIME_PAY
 FROM EMP;
 
---¹®Á¦ 3
+--ë¬¸ì œ 3
 SELECT
     EMPNO,
     ENAME,
     HIREDATE,
-    TO_CHAR(NEXT_DAY(ADD_MONTHS(HIREDATE, 3), '¿ù¿äÀÏ'), 'YYYY-MM-DD') AS R_JOB,
+    TO_CHAR(NEXT_DAY(ADD_MONTHS(HIREDATE, 3), 'ì›”ìš”ì¼'), 'YYYY-MM-DD') AS R_JOB,
     NVL(TO_CHAR(COMM), 'N/A') AS COMM
 FROM EMP;
 
---¹®Á¦ 4
+--ë¬¸ì œ 4
 SELECT
     EMPNO,
     ENAME,

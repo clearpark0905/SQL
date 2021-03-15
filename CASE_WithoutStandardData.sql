@@ -1,7 +1,7 @@
-SELECT EMPNO, ENAME, COMM,
+ï»¿SELECT EMPNO, ENAME, COMM,
     CASE
-        WHEN COMM IS NULL THEN 'ÇØ´ç»çÇ× ¾øÀ½'
-        WHEN COMM = 0 THEN '¼ö´ç ¾øÀ½'
-        WHEN COMM > 0 THEN '¼ö´ç : ' || COMM
+        WHEN COMM IS NULL THEN 'í•´ë‹¹ì‚¬í•­ ì—†ìŒ'
+        WHEN COMM = 0 THEN 'ìˆ˜ë‹¹ ì—†ìŒ'
+        WHEN COMM > 0 THEN 'ìˆ˜ë‹¹ : ' || COMM
     END AS COMM_TEXT
 FROM EMP;

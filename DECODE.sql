@@ -1,4 +1,4 @@
-SELECT EMPNO,
+ï»¿SELECT EMPNO,
     ENAME,
     JOB,
     SAL,
@@ -6,5 +6,5 @@ SELECT EMPNO,
         'MANAGER', SAL*1.1,
         'SALESMAN', SAL*1.05,
         'ANALYST', SAL,
-        SAL*1.03) AS UPSAL -- DECODEÇÔ¼öÀÇ ¸Ç ¸¶Áö¸· µ¥ÀÌÅÍ, Áï Á¶°Ç¿¡ ÇØ´çÇÏ´Â °ªÀÌ ¾øÀ» ¶§ ¹ÝÈ¯ °ªÀ» ÁöÁ¤ÇÏÁö ¾ÊÀ¸¸é NULLÀÌ ¹ÝÈ¯µÈ´Ù.
+        SAL*1.03) AS UPSAL -- DECODEí•¨ìˆ˜ì˜ ë§¨ ë§ˆì§€ë§‰ ë°ì´í„°, ì¦‰ ì¡°ê±´ì— í•´ë‹¹í•˜ëŠ” ê°’ì´ ì—†ì„ ë•Œ ë°˜í™˜ ê°’ì„ ì§€ì •í•˜ì§€ ì•Šìœ¼ë©´ NULLì´ ë°˜í™˜ëœë‹¤.
 FROM EMP;

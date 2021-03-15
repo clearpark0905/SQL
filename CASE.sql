@@ -1,4 +1,4 @@
-SELECT EMPNO, ENAME, JOB, SAL,
+ï»¿SELECT EMPNO, ENAME, JOB, SAL,
     CASE JOB
         WHEN 'MANAGER' THEN SAL*1.1
         WHEN 'SALESMAN' THEN SAL*1.05
@@ -7,4 +7,4 @@ SELECT EMPNO, ENAME, JOB, SAL,
     END AS UPSAL
 FROM EMP;
 
--- ¸ðµç DECODE¹®Àº CASE¹®À¸·Î ¹Ù²Ü ¼ö ÀÖ´Ù. ÇÏÁö¸¸ ¸ðµç CASE¹®ÀÌ DECODE·Î ¹Ù²Ü ¼ö ÀÖÁø ¾Ê´Ù. Áï, CASE¹®ÀÇ ¹ü¿ë¼ºÀÌ ´õ ³ô´Ù.
+-- ëª¨ë“  DECODEë¬¸ì€ CASEë¬¸ìœ¼ë¡œ ë°”ê¿€ ìˆ˜ ìžˆë‹¤. í•˜ì§€ë§Œ ëª¨ë“  CASEë¬¸ì´ DECODEë¡œ ë°”ê¿€ ìˆ˜ ìžˆì§„ ì•Šë‹¤. ì¦‰, CASEë¬¸ì˜ ë²”ìš©ì„±ì´ ë” ë†’ë‹¤.
