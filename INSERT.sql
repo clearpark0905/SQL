@@ -1,0 +1,45 @@
+CREATE TABLE DEPT_TEMP
+    AS SELECT *
+        FROM DEPT;
+
+-- 기본
+-- INSERT INTO 테이블_이름 [(열1, 열2, ... ,열)]
+-- VALUES (데이터1, 데이터2, ... ,데이터);
+
+INSERT INTO DEPT_TEMP VALUES(50, 'DATABASE', 'SEOUL');
+INSERT INTO DEPT_TEMP VALUES (60, 'NETWORK', 'BUSAN');
+INSERT INTO DEPT_TEMP VALUES (70, 'WEB', NULL);
+-- 빈 문자열도 NULL로 넣어짐, 실무에서는 사용하지말자.
+INSERT INTO DEPT_TEMP VALUES (80, 'MOBILE', '');
+
+CREATE TABLE EMP_TEMP
+	AS SELECT *
+		FROM EMP
+		WHERE 1=0
+;
+
+SELECT *
+FROM EMP_TEMP;
+
+INSERT INTO EMP_TEMP
+VALUES (9999, '홍길동', 'PRESIDENT', NULL, '2001/01/01', 5000, 1000, 10);
+INSERT INTO EMP_TEMP
+VALUES (1111, '성춘향', 'MANAGER', NULL, '2001-01-05', 4000, NULL, 20);
+-- 날짜 표기 방법이 다르기때문에 아래와 같이 사용하는 것을 추천
+INSERT INTO EMP_TEMP
+VALUES (2111, '이순신', 'MANAGER', 9999, TO_DATE('07/01/2001', 'DD/MM/YYYY'), 4000, NULL, 20);
+-- 또는 현재 날짜는 SYSDATE 사용
+INSERT INTO EMP_TEMP
+VALUES (3111, '심청이', 'MANAGER', 9999, SYSDATE, 4000, NULL, 30);
+-- 서브쿼리를 사용하여 한 번에 여러 데이터 추가 가능
+INSERT INTO EMP_TEMP 
+	SELECT E.EMPNO, E.ENAME, E.JOB, E.MGR, E.HIREDATE, E.SAL, E.COMM, E.DEPTNO
+	FROM EMP E, SALGRADE S
+	WHERE 1=1
+	AND E.SAL BETWEEN S.LOSAL AND S.HISAL 
+	AND S.GRADE = 1
+;
+-- INSERT 문에서 서브쿼리 사용 시 주의점
+-- 1. VALUES 절 사용하지 않음
+-- 2. 데이터가 추가되는 테이블의 열 개수 = 서브쿼리의 열 개수
+-- 3. 데이터가 추가되는 테이블의 자료형 = 서브쿼리의 자료형

@@ -1,0 +1,36 @@
+CREATE TABLE DEPT_TEMP2
+	AS SELECT * FROM DEPT;
+	
+SELECT *
+FROM DEPT_TEMP2;
+
+-- UPDATE 테이블_이름
+-- SET 변경할_열1 = 데이터, 변경할_열2 = 데이터, ... , 변경할_열 = 데이터
+-- [WHERE 변경 대상 행을 선별하기 위한 조건]
+
+UPDATE DEPT_TEMP2
+SET DNAME = 'DATABASE',
+	LOC = 'SEOUL'
+WHERE DEPTNO = 40
+;
+
+-- 서브쿼리를 사용하여 데이터 수정하기
+UPDATE DEPT_TEMP2
+SET (DNAME, LOC) = (SELECT DNAME, LOC
+					FROM DEPT
+					WHERE DEPTNO = 40)
+WHERE DEPTNO = 40;
+-- 열 하나하나 수정
+UPDATE DEPT_TEMP2
+SET DNAME = (SELECT DNAME FROM DEPT WHERE DEPTNO = 40),
+	LOC = (SELECT LOC FROM DEPT WHERE DEPTNO = 40)
+WHERE DEPTNO = 40;
+-- 변경할 열 개수나 자료형이 일치해야함
+
+-- WHERE절에 서브쿼리 사용 가능
+UPDATE DEPT_TEMP2
+SET LOC = 'SEOUL'
+WHERE DEPTNO = (SELECT DEPTNO FROM DEPT_TEMP2 WHERE DNAME = 'OPERATIONS');
+
+--실무에서는 UPDATE와 DELETE 문을 실행하기 전에 SELECT 문으로 WHERE절의 조건식이 정확한지 확인해야함!
+
